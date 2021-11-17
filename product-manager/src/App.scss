@@ -1,0 +1,44 @@
+
+.product-index {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-form {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  div {
+    width: 100%;
+  }
+
+  input {
+    float: right;
+    width: 70%;
+  }
+}
+
+table {
+  width: 100%;
+  table-layout: auto;
+}
+
+td {
+  width: 20%;
+  text-align: center;
+  border:darkgrey;  
+  border-width: 1px;
+  border-style: solid;
+
+  &:hover{
+  cursor: pointer;
+
+  }
+}
+
+// tr:hover {
+//   cursor: pointer;
+// }
+
