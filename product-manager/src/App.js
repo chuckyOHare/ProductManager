@@ -29,6 +29,12 @@ function App() {
     }
   }
 
+  if (!userInfo){
+    return (
+      <p>denied</p>
+    )
+  }
+
   console.log(userInfo);
 
   const [selectedProduct, setSelectedProduct] = useState();
