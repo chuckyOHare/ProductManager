@@ -16,6 +16,24 @@ function App() {
     })();
   }, []);
 
+  const [selectedProduct, setSelectedProduct] = useState();
+  const [isCreatingProduct, setIsCreateingProduct] = useState();
+  const [allProducts, setAllProducts] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    GetProducts((products) => {
+      setAllProducts(products);
+      setIsLoading(false);
+    })
+  }, []);
+  
+  // const redirect = window.location.pathname;
+  // const authEndpoint = `/.auth/login/aad?post_login_redirect_uri=${redirect}`;
+  // if (!userInfo){
+  //   window.location.href = authEndpoint;
+  // }
+
   async function getUserInfo() {
     try {
       console.log("tick");
@@ -36,24 +54,6 @@ function App() {
   }
 
   console.log(userInfo);
-
-  const [selectedProduct, setSelectedProduct] = useState();
-  const [isCreatingProduct, setIsCreateingProduct] = useState();
-  const [allProducts, setAllProducts] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    GetProducts((products) => {
-      setAllProducts(products);
-      setIsLoading(false);
-    })
-  }, []);
-  
-  // const redirect = window.location.pathname;
-  // const authEndpoint = `/.auth/login/aad?post_login_redirect_uri=${redirect}`;
-  // if (!userInfo){
-  //   window.location.href = authEndpoint;
-  // }
 
   const RefreshProducts = () =>{
     setIsLoading(true);
