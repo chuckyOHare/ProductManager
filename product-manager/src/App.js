@@ -7,15 +7,6 @@ import React, { useState, useEffect } from 'react';
 // const axios = require('axios');
 
 function App() {
-
-  const [userInfo, setUserInfo] = useState();
-
-  useEffect(() => {
-    (async () => {
-      setUserInfo(await getUserInfo());
-    })();
-  }, []);
-
   const [selectedProduct, setSelectedProduct] = useState();
   const [isCreatingProduct, setIsCreateingProduct] = useState();
   const [allProducts, setAllProducts] = useState();
@@ -27,33 +18,6 @@ function App() {
       setIsLoading(false);
     })
   }, []);
-  
-  // const redirect = window.location.pathname;
-  // const authEndpoint = `/.auth/login/aad?post_login_redirect_uri=${redirect}`;
-  // if (!userInfo){
-  //   window.location.href = authEndpoint;
-  // }
-
-  async function getUserInfo() {
-    try {
-      console.log("tick");
-      const response = await fetch('/.auth/me');
-      const payload = await response.json();
-      const { clientPrincipal } = payload;
-      return clientPrincipal;
-    } catch (error) {
-      console.error('No profile could be found');
-      return undefined;
-    }
-  }
-
-  if (!userInfo){
-    return (
-      <p>denied</p>
-    )
-  }
-
-  console.log(userInfo);
 
   const RefreshProducts = () =>{
     setIsLoading(true);
